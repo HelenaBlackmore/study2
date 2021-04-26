@@ -1,0 +1,110 @@
+---
+title: "study 2"
+author: "Helena"
+date: "4/3/2019"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include=FALSE, warning = F, message = F)
+```
+
+```{r libraries}
+
+library(ggsignif)
+library(gvlma)
+library(mediation)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(readxl)
+library(pastecs)
+library(multcomp)
+library(nlme)
+library(lmerTest)
+library(MASS)
+library(tidyverse)
+library(mvoutlier)
+library(lavaan)
+library(BayesFactor)
+library(jtools)
+library(bmlm)
+library(qgraph)
+
+
+
+
+
+
+```
+
+```{r blind, include=FALSE }
+
+source("s2_blind.R", local = knitr::knit_global())
+
+```
+
+
+```{r main_wrnagle, include=FALSE }
+
+source("main_read_wrangle.R", local = knitr::knit_global())
+
+```
+
+# <!-- below not necessary-->
+
+```{r typeface, include=FALSE }
+
+source("typeface.R", local = knitr::knit_global())
+
+```
+```{r contrasts, include=FALSE }
+
+source("contrasts.R", local = knitr::knit_global())
+
+```
+```{r perception, include=FALSE }
+
+source("perception.R", local = knitr::knit_global())
+
+```
+```{r expect, include=FALSE }
+
+source("expectations.R", local = knitr::knit_global())
+
+```
+```{r mediation1, include=FALSE }
+
+source("mediation_mediation.R", local = knitr::knit_global())
+
+```
+<!-- above not necessary-->
+
+# RM mediation
+<!-- run the line below if mediation 1 chunk not run-->
+
+```{r}
+all_merged%>%mutate(descriptor=(if_else(label=="bitter", "1","0")))->all_merged
+```
+```{r mediation2, include=FALSE }
+
+source("mediation_bmlm.R", local = knitr::knit_global())
+
+```
+
+
+
+```{r brms}
+
+source("brms.R", local = knitr::knit_global())
+```
+
+
+
+
+
+
+
+
